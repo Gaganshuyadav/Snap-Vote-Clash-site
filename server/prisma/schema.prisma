@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+} 
+
+model User{
+  id String @id @default(uuid())
+  name String @db.VarChar(100)  
+  email String @unique
+  password String
+  reset_password_token_send_at DateTime?
+  password_reset_token String?
+  is_email_verified Boolean? @default(false)  @map("isVerified")   //now isVerified name is used as the column name in table 
+  email_verified_at DateTime?
+  email_verification_token String 
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt 
+  // gender UserGender?                       @ignore           //This field will not be mapped to the database( meaning it will not be included in the database schema, allowing developers to handle it in the application without persisting it.)   ( TYPESCRIPT ko nhi pta ki database main exist karaga ya nhi , but database main exist karaga)      ( use case:- remove a field, but keap application running without immediate changes in database, temporary field used for calculation but not be persisted in DB, precent sensitive data, not intended to use in production,  )
+
+  // @@index([name ])      //define a index in a database
+  // @@unique([email,id])  //unique
+}
+
+// enum UserGender{
+//   MALE
+//   FEMALE
+// }
+
+
+//.command to update the table:-  npx prisma migrate dev --name add-user-model
