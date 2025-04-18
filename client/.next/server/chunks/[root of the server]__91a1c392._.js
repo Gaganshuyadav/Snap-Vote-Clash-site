@@ -210,7 +210,7 @@ const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$pr
                     return null;
                 }
                 try {
-                    const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].post(`${process.env.BACKEND_API_URL}/user/login`, credentials, {
+                    const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].post(`${("TURBOPACK compile-time value", "http://localhost:8080")}/user/login`, credentials, {
                         headers: {
                             "Content-Type": "application/json"
                         }
@@ -242,7 +242,7 @@ const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$pr
         },
         async session ({ user, token, session }) {
             session.user = token.user;
-            return token;
+            return session;
         }
     }
 });

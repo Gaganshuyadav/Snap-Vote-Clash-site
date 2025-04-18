@@ -1,10 +1,12 @@
 "use client";
-import { errorsType, initialRespType, loginAction } from "@/actions/authActions";
+import { initialRespType, loginAction } from "@/actions/authActions";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import FormButtonLoading from "../loading/FormButtonLoading";
-import { signIn} from "next-auth/react";
+import { signIn, useSession} from "next-auth/react";
+import authOptions from "../../app/api/auth/[...nextauth]/auth"
+import { redirect } from "next/navigation";
 // import { useRouter, useSearchParams, useParams } from 'next/navigation';
 
 export default function LoginForm() {
@@ -46,7 +48,7 @@ export default function LoginForm() {
                 email: state.data?.email,
                 password: state.data?.password,
                 redirect: true,
-                callbackUrl: "/home"
+                callbackUrl: "/dashboard"
             });
             toast("Login Successfully");
         }
@@ -64,6 +66,16 @@ export default function LoginForm() {
     // console.log(a1);
     // console.log(a2.get("as"));
     // console.log(a3);
+
+
+
+    //check if login already
+    const session = useSession(authOptions);
+
+    if(session?.status==="authenticated"){
+       redirect("/dashboard");
+    }
+
 
     return (
         <>

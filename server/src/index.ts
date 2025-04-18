@@ -8,7 +8,10 @@ import ejs from "ejs";
 import router from "./routes/index.js";
 import { errorHandlingMiddleware } from "./middleware/errorHandlingMiddleware.js";
 import { appLimiter } from "./config/rateLimit.js";
+import cors from "cors";
 
+//cors
+app.use(cors({ origin:true}));
 
 app.use(express.json());
 

@@ -87,7 +87,7 @@ export const loginAction = async ( prev:initialRespType, formData:FormData ):Pro
 
     try{
         const res = await axios.post(
-            `${process.env.BACKEND_API_URL}/user/login-check`, 
+            `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/user/login-check`, 
             { email: formData.get("email"), password: formData.get("password") }, 
             { headers:{ "Content-Type":"application/json"}}
         );

@@ -43,8 +43,9 @@ export default NextAuth({
                 }
 
                 try{
+       
                 const { data} = await axios.post(
-                    `${process.env.BACKEND_API_URL}/user/login`,
+                    `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/user/login`,
                     credentials,
                     { headers:{ "Content-Type":"application/json"}}
                 )
@@ -83,7 +84,7 @@ export default NextAuth({
         },
         async session({ user, token, session}:{ user:CustomUser, token: JWT, session: CustomSession}){
             session.user = token.user as CustomUser;
-            return token;
+            return session;
         }
     },
     

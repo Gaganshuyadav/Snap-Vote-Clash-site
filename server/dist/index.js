@@ -7,6 +7,9 @@ import { fileURLToPath } from "url";
 import router from "./routes/index.js";
 import { errorHandlingMiddleware } from "./middleware/errorHandlingMiddleware.js";
 import { appLimiter } from "./config/rateLimit.js";
+import cors from "cors";
+//cors
+app.use(cors({ origin: true }));
 app.use(express.json());
 //for html forms
 app.use(express.urlencoded({ extended: true }));

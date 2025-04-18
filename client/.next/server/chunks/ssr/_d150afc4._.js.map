@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file://C%3A/vsCodeFolder/1.webDevelopment/1.WebProjects/3.Snap-Vote/client/src/app/page.tsx"],"sourcesContent":["import Image from \"next/image\";\nimport appImage from \"images/business-competition-animate.svg\";\n\nexport default function Home() {\n\n  return (\n    <div>\n      <Image src={appImage} alt=\"app-main-image\"/>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AAAA;;;;;;;;;AAGe,SAAS;IAEtB,qBACE,8OAAC;kBACC,cAAA,8OAAC,6HAAA,CAAA,UAAK;YAAC,KAAK;YAAU,KAAI;;;;;;;;;;;AAGhC","debugId":null}}]
-}

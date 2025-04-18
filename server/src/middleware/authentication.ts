@@ -6,8 +6,9 @@ import { env } from "../config/env.config.js";
 
 
 export const authentication =catchAsyncErrors( async( req:Request, res:Response, next:NextFunction)=>{
+    
     const authToken = req.headers["authorization"];
-
+    
     if(!authToken){
         return res.status(401).json({
             success: false,

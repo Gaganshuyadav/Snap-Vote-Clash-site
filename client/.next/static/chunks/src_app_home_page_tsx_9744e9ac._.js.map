@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/vsCodeFolder/1.webDevelopment/1.WebProjects/3.Snap-Vote/client/src/app/home/page.tsx"],"sourcesContent":["\"use client\"\r\nimport React from 'react';\r\nimport authOptions from \"../api/auth/[...nextauth]/auth\";\r\nimport { useSession } from 'next-auth/react';\r\n\r\nconst Home = () => {\r\n\r\n    const session = useSession();\r\n    console.log(\"::--)))))0 \",session);\r\n\r\n  return (\r\n    <div>\r\n        <div>Hello, i am coming home</div>\r\n        {/* <p>{session}</p> */}\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Home;\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"],"names":[],"mappings":";;;;AAGA;;;AAHA;;AAKA,MAAM,OAAO;;IAET,MAAM,UAAU,CAAA,GAAA,iJAAA,CAAA,aAAU,AAAD;IACzB,QAAQ,GAAG,CAAC,eAAc;IAE5B,qBACE,6LAAC;kBACG,cAAA,6LAAC;sBAAI;;;;;;;;;;;AAIb;GAXM;;QAEc,iJAAA,CAAA,aAAU;;;KAFxB;uCAaS","debugId":null}}]
-}

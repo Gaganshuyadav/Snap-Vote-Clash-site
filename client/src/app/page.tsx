@@ -12,7 +12,7 @@ export default function Home() {
         <p className="text-sm text-orange-500 font-semibold mb-4">Create Clashes And Find Winner</p>
       </div>
       <div>
-        <Link href={"/login"}>
+        <Link href={"/dashboard"}>
             <Button className="bg-orange-500">
               Start Here
             </Button>
