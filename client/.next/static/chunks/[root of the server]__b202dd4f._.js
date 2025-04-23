@@ -746,20 +746,20 @@ function LogoutConfirmationDialog({ dialogOpen, setDialogOpen }) {
                             children: "Logout"
                         }, void 0, false, {
                             fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                            lineNumber: 30,
+                            lineNumber: 28,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogDescription"], {
                             children: "Are you sure you want to logout ?"
                         }, void 0, false, {
                             fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                            lineNumber: 31,
+                            lineNumber: 29,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                    lineNumber: 29,
+                    lineNumber: 27,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogFooter"], {
@@ -768,7 +768,7 @@ function LogoutConfirmationDialog({ dialogOpen, setDialogOpen }) {
                             children: "Cancel"
                         }, void 0, false, {
                             fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                            lineNumber: 37,
+                            lineNumber: 35,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$alert$2d$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AlertDialogAction"], {
@@ -776,24 +776,24 @@ function LogoutConfirmationDialog({ dialogOpen, setDialogOpen }) {
                             children: "Logout"
                         }, void 0, false, {
                             fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                            lineNumber: 38,
+                            lineNumber: 36,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-                    lineNumber: 36,
+                    lineNumber: 34,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-            lineNumber: 27,
+            lineNumber: 25,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/avatar-menu/LogoutConfirmationDialog.tsx",
-        lineNumber: 25,
+        lineNumber: 23,
         columnNumber: 7
     }, this);
 }
@@ -835,7 +835,7 @@ function AvatarDropDownMenu({ children }) {
                         children: "Profile"
                     }, void 0, false, {
                         fileName: "[project]/src/components/avatar-menu/AvatarMenu.tsx",
-                        lineNumber: 33,
+                        lineNumber: 24,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dropdown$2d$menu$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DropdownMenuItem"], {
@@ -845,13 +845,13 @@ function AvatarDropDownMenu({ children }) {
                         children: "Log out"
                     }, void 0, false, {
                         fileName: "[project]/src/components/avatar-menu/AvatarMenu.tsx",
-                        lineNumber: 37,
+                        lineNumber: 28,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/avatar-menu/AvatarMenu.tsx",
-                lineNumber: 31,
+                lineNumber: 22,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$avatar$2d$menu$2f$LogoutConfirmationDialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -859,13 +859,13 @@ function AvatarDropDownMenu({ children }) {
                 setDialogOpen: setLogoutConfirmationOpen
             }, void 0, false, {
                 fileName: "[project]/src/components/avatar-menu/AvatarMenu.tsx",
-                lineNumber: 44,
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/avatar-menu/AvatarMenu.tsx",
-        lineNumber: 29,
+        lineNumber: 20,
         columnNumber: 5
     }, this);
 }
@@ -894,6 +894,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$u
 ;
 ;
 ;
+// import { Button } from '../ui/button'; 
 const Header = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 bg-linear-65 from-purple-500 to-pink-500 h-[80px] sticky w-full top-0 ",

@@ -1,6 +1,6 @@
 "use client";
 
-import { initialRespType, registerAction } from '@/actions/authActions';
+import { initialRespType, registerAction } from '@/actions/auth/authActions';
 import Link from 'next/link';
 import React, { useActionState, useEffect, useState } from 'react'
 import FormButtonLoading from '../loading/FormButtonLoading';

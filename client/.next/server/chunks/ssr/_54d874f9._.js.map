@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/vsCodeFolder/1.webDevelopment/1.WebProjects/3.Snap-Vote/client/src/app/clash/items/%5Bid%5D/page.tsx"],"sourcesContent":["\"use server\";\r\n\r\nconst page = async ( { params, searchParams}:{ params:string, searchParams:Record<string, string|number>}) => {\r\n\r\n  const data = await params;\r\n  \r\n  //fetch data\r\n  \r\n\r\n    return (\r\n        <div>\r\n\r\n        </div>\r\n  )\r\n}\r\n\r\nexport default page;\r\n\r\n"],"names":[],"mappings":";;;;;;;;;;AAEA,MAAM,OAAO,OAAQ,EAAE,MAAM,EAAE,YAAY,EAA8D;IAEvG,MAAM,OAAO,MAAM;IAEnB,YAAY;IAGV,qBACI,8OAAC;;;;;AAIT;uCAEe,uCAAE,GAAF;;;IAAA;;AAAA,+OAAA","debugId":null}},
+    {"offset": {"line": 38, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}}]
+}

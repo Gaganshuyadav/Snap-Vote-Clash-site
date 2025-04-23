@@ -1,12 +1,17 @@
 
 import axios from "axios";
-import { ISODateString } from "next-auth";
+import { AuthOptions, ISODateString } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import CredentialsProvider from "next-auth/providers/credentials";
-import NextAuth from "next-auth";
+// import NextAuth from "next-auth";
 
 //custom user
+
+// Update your CustomUser type to include the id property, which is required by the User type and required for NextAuth.
+
+
 export type CustomUser = {
+    id?: string | null,
     userId?: string | null,
     name?: string | null,
     email?: string | null,
@@ -20,12 +25,12 @@ export type CustomUser = {
 //custom session
 export type CustomSession = {
     user?: CustomUser,
-    expires?: ISODateString
+    expires: ISODateString
 }
 
 //auth options:- 
 
-export default NextAuth({
+export const authOptions:AuthOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -34,7 +39,7 @@ export default NextAuth({
                 email: { label: "Email", type:"email", placeholder:"Enter your email"},
                 password: { label:"Password", type:"password"}
             },
-            async authorize( credentials, req ){
+            async authorize( credentials ){
 
                 // console.log("credentials:-----------------",credentials);
                 if (!credentials || !credentials.email || !credentials.password) {
@@ -51,8 +56,10 @@ export default NextAuth({
                 )
 
                 const user = data.data as CustomUser;
-                if(user){
-                    return user;
+                
+                // Update your CustomUser type to include the id property, which is required by the User type and required for NextAuth.
+                if(user && user.userId){
+                    return { ...user, id: user.userId};
                 }
                 else{
                     return null;
@@ -82,13 +89,13 @@ export default NextAuth({
 
             return token;
         },
-        async session({ user, token, session}:{ user:CustomUser, token: JWT, session: CustomSession}){
+        async session({ token, session}:{ token: JWT, session: CustomSession}){
             session.user = token.user as CustomUser;
             return session;
         }
     },
     
-})
+};
 
 
 

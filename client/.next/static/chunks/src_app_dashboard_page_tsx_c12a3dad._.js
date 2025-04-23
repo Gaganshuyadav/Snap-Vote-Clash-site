@@ -5,20 +5,8 @@
 (globalThis.TURBOPACK_CHUNK_LISTS = globalThis.TURBOPACK_CHUNK_LISTS || []).push({
   "path": "static/chunks/src_app_dashboard_page_tsx_c12a3dad._.js",
   "chunks": [
-    "static/chunks/node_modules_axios_lib_99999129._.js",
-    "static/chunks/node_modules_next_dist_compiled_stream-http_index_4b0f5eaa.js",
-    "static/chunks/node_modules_next_dist_compiled_crypto-browserify_index_07270ec0.js",
-    "static/chunks/node_modules_next_dist_compiled_assert_assert_eb302145.js",
-    "static/chunks/node_modules_next_dist_compiled_b511ea43._.js",
-    "static/chunks/node_modules_next_dist_server_3e286b01._.js",
-    "static/chunks/node_modules_next_headers_85144e06.js",
-    "static/chunks/node_modules_next-auth_4af6f5b9._.js",
-    "static/chunks/node_modules_openid-client_f122e9c5._.js",
-    "static/chunks/node_modules_jose_dist_browser_0a984e58._.js",
-    "static/chunks/node_modules_date-fns_5e7b5adc._.js",
-    "static/chunks/node_modules_react-day-picker_dist_index_esm_9fc30424.js",
-    "static/chunks/node_modules_8c1cdb8a._.js",
-    "static/chunks/src_85351d65._.js"
+    "static/chunks/node_modules_74b6a06f._.js",
+    "static/chunks/src_2d29e938._.js"
   ],
   "source": "dynamic"
 });

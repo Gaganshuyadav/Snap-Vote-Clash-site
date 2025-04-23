@@ -8,14 +8,16 @@ import { Textarea } from '../ui/textarea';
 import DateInput from '../common/DateInput';
 import axios from 'axios';
 import {  CustomUser } from '@/app/api/auth/[...nextauth]/auth';
+import { ClearCache } from '@/actions/clash/ClearCache';
 
 const AddClash = ( { user}:{ user:CustomUser|null}) => {
     
-  const [date, setDate] = React.useState<Date|undefined>();
-  const [ title, setTitle] = useState<string>("");
+  const [ date, setDate] = React.useState<Date|undefined>();
+  const [ title, setTitle] = useState<string>(""); 
   const [ description, setDescription] = useState<string>("");
   const [ image, setImage] = useState<File|null>(null);
   const [ loading, setLoading] = useState(false);
+  const [ dialogOpen, setDialogOpen] = useState(false);
 
   const handleImageSelect = (e:React.ChangeEvent<HTMLInputElement>)=>{
     
@@ -24,7 +26,6 @@ const AddClash = ( { user}:{ user:CustomUser|null}) => {
     }
     
   };
-
 
   const handleFormSubmit = async (e:React.FormEvent)=>{
       e.preventDefault();
@@ -37,7 +38,7 @@ const AddClash = ( { user}:{ user:CustomUser|null}) => {
 
       form.append("title", title);
       form.append("description", description);
-      form.append("date", date.toISOString());
+      form.append("expired_at", date.toISOString());
       form.append("image", image as File);
 
 
@@ -47,24 +48,30 @@ const AddClash = ( { user}:{ user:CustomUser|null}) => {
 
       try{
         const { data} = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/clash/create`, form, { headers:{ "Content-Type":"multipart/form-data", "Authorization":`Bearer ${user?.token}` }});
-        console.log(data);
+        clearDialog();
+        ClearCache("/dashboard");
       }
       catch(err){
         console.log(err);
+        clearDialog();
       }
-
-      
-
-
 
   } 
 
 
+  const clearDialog = ()=>{
 
+    setTitle("");
+    setDescription("");
+    setDate(undefined);
+    setTitle("");
+    setDialogOpen(false);
+    setLoading(false);
+  }
 
 
   return (
-    <Dialog>
+    <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
         <Button className='px-6 py-5'>Create Clash</Button>
       </DialogTrigger>
@@ -111,9 +118,17 @@ const AddClash = ( { user}:{ user:CustomUser|null}) => {
             <span className="text-red-500"></span>
           </div>
           <div className="mt-4">
-            <Button className="w-full">
+            {
+              loading
+              ?
+              (<Button disabled={loading} className="w-full">
+                Creating&nbsp;.&nbsp;.&nbsp;.
+              </Button>)
+              :
+            (<Button disabled={loading} type='submit' className="w-full">
               Create Clash
-            </Button>
+            </Button>)
+            }
           </div>
         </form>
       </DialogContent>

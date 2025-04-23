@@ -9,9 +9,9 @@ router.post("/create", authentication, multerUpload.single("image"), clashContro
 
 router.get("/", authentication, clashController.getAllClashes);
 
-router.get("/:id", authentication, clashController.getClash);
+router.get("/:id", clashController.getClash);
 
-router.put("/:id", authentication, clashController.updateClash);
+router.put("/:id", authentication, multerUpload.single("image"), clashController.updateClash);
 
 router.delete("/:id", authentication, clashController.deleteClash);
 

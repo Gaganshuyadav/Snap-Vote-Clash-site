@@ -8,7 +8,7 @@ class ClashController {
     constructor() {
         this.createNewClash = catchAsyncErrors(async (req, res, next) => {
             const { title, description, expired_at } = req.body;
-            //validate req.body    
+            //validate req.body  
             try {
                 clashSchema.parse(req.body);
             }
@@ -27,37 +27,66 @@ class ClashController {
                 return next(new errorHandler(imageValidate.message, 422));
             }
             //convert buffer to image url
-            const imageURL = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
-            //now add clash in schema
-            const newClash = await prisma.clash.create({
-                data: {
-                    user_id: req.user?.userId,
-                    image: imageURL,
-                    title: title,
-                    description: description,
-                    expired_at: expired_at
-                }
-            });
-            return res.status(201).json({
-                success: true,
-                data: {
-                    id: newClash.id,
-                    user_id: req.user?.userId,
-                    image: imageURL,
-                    ...req.body,
-                    expired_at: new Date().toISOString()
-                }
-            });
+            let imageURL = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+            //now add clash in schema 
+            try {
+                console.log("come closer.. ", expired_at);
+                const newClash = await prisma.clash.create({
+                    data: {
+                        user_id: req.user?.userId,
+                        image: imageURL,
+                        title: title,
+                        description: description,
+                        expired_at: new Date(expired_at).toISOString()
+                    }
+                });
+                return res.status(201).json({
+                    success: true,
+                    data: {
+                        id: newClash.id,
+                        user_id: req.user?.userId,
+                        image: imageURL,
+                        ...req.body,
+                        expired_at: new Date().toISOString()
+                    }
+                });
+            }
+            catch (err) {
+                console.log(err);
+                res.status(500).json({
+                    success: true,
+                    message: "Something went wrong in serverr"
+                });
+            }
         });
         this.getAllClashes = catchAsyncErrors(async (req, res, next) => {
             const allClashes = await prisma.clash.findMany({ where: { user_id: req.user?.userId } });
+            //remove image 
+            const withOutImage = allClashes?.map(({ ["image"]: _, ...rest }) => rest);
             return res.status(200).json({
                 success: true,
                 data: allClashes
             });
         });
         this.getClash = catchAsyncErrors(async (req, res) => {
-            const clash = await prisma.clash.findUnique({ where: { id: req.params.id } });
+            const clash = await prisma.clash.findUnique({
+                where: { id: req.params.id },
+                select: {
+                    title: true,
+                    description: true,
+                    clashItems: {
+                        select: {
+                            count: true,
+                            image: true
+                        }
+                    },
+                    comments: {
+                        select: {
+                            content: true
+                        }
+                    }
+                }
+            });
             if (!clash) {
                 return res.status(404).json({
                     success: false,

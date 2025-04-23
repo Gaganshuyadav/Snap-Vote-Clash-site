@@ -1,0 +1,16 @@
+{
+  "node": {
+    "7ffe3263aa641a6e01a7ff872cc31b4a4f5646ac2e": {
+      "workers": {
+        "app/clash/items/[id]/page": {
+          "moduleId": "[project]/.next-internal/server/app/clash/items/[id]/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/app/clash/items/[id]/page.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/clash/items/[id]/page": "rsc"
+      }
+    }
+  },
+  "edge": {}
+}

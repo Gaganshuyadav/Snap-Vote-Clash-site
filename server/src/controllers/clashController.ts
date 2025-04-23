@@ -13,7 +13,7 @@ class ClashController{
         
         const { title, description, expired_at}:{ title:string, description:string, expired_at:string} = req.body;
        
-        //validate req.body    
+        //validate req.body  
         try{
             clashSchema.parse(req.body );
         }
@@ -37,19 +37,23 @@ class ClashController{
         }
 
         //convert buffer to image url
-        const imageURL = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
-     
+        let imageURL = `data:${req.file.mimetype};base64,${req.file.buffer.toString("base64")}`;
+    
 
-     //now add clash in schema
-        const newClash = await prisma.clash.create({
-            data:{
-                user_id: req.user?.userId as string,
-                image: imageURL,
-                title: title,
-                description: description,
-                expired_at: expired_at
-            }
-        })
+        //now add clash in schema 
+        try{
+
+            console.log("come closer.. ",expired_at);
+            
+            const newClash = await prisma.clash.create({
+                data:{
+                    user_id: req.user?.userId as string,
+                    image: imageURL,
+                    title: title,
+                    description: description,
+                    expired_at: new Date(expired_at).toISOString()
+                }
+            })
 
 
         return res.status(201).json({
@@ -62,12 +66,25 @@ class ClashController{
                 expired_at: new Date().toISOString()
             }
         });
+
+        }
+        catch(err){
+            console.log(err);
+            res.status(500).json({ 
+                success:true,
+                message:"Something went wrong in serverr"
+            })
+        }
         
     })
 
     public getAllClashes = catchAsyncErrors( async( req:Request, res:Response, next:NextFunction)=>{
 
         const allClashes = await  prisma.clash.findMany({ where: { user_id: req.user?.userId}});
+
+        //remove image 
+        const withOutImage = allClashes?.map(({ ["image"]: _, ...rest})=> rest);
+    
 
         return res.status(200).json({
             success:true,
@@ -78,12 +95,31 @@ class ClashController{
 
     public getClash = catchAsyncErrors( async( req:Request, res:Response)=>{
 
-        const clash = await prisma.clash.findUnique({where:{id: req.params.id}});
+        const clash = await prisma.clash.findUnique(
+            {
+                where:{id: req.params.id},
+                select: {
+                    title:true,
+                    description:true,
+                    clashItems:{
+                        select:{ 
+                            count:true,
+                            image:true
+                        }
+                    },
+                    comments:{
+                        select:{
+                            content:true
+                        }
+                    }
+                }
+            }
+        );
 
         if(!clash){
             return res.status(404).json({
                 success:false,
-                message:"Not Found"
+                message:"Not Found" 
             })
         }
 

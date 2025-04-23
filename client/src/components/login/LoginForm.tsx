@@ -1,12 +1,13 @@
 "use client";
-import { initialRespType, loginAction } from "@/actions/authActions";
+import { errorsType, initialRespType, loginAction } from "@/actions/auth/authActions";
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { toast } from "sonner";
 import FormButtonLoading from "../loading/FormButtonLoading";
 import { signIn, useSession} from "next-auth/react";
-import authOptions from "../../app/api/auth/[...nextauth]/auth"
 import { redirect } from "next/navigation";
+import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
+import NextAuth from "next-auth";
 // import { useRouter, useSearchParams, useParams } from 'next/navigation';
 
 export default function LoginForm() {
@@ -14,7 +15,7 @@ export default function LoginForm() {
     const initialState:initialRespType = {
             success:false,
             message:"",
-            errors:{}
+            errors:{} as errorsType
     }
 
     const [ state, formAction] = useActionState( loginAction, initialState);
@@ -70,7 +71,7 @@ export default function LoginForm() {
 
 
     //check if login already
-    const session = useSession(authOptions);
+    const session = useSession( NextAuth(authOptions));
 
     if(session?.status==="authenticated"){
        redirect("/dashboard");
@@ -105,7 +106,7 @@ export default function LoginForm() {
                 <FormButtonLoading BtnName="Login" ButtonBgColor="bg-pink-500" />
 
                 <p className="mt-4 text-center">
-                    Don't have an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
+                    Don&apos;t have an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
                 </p>
 
             </form>

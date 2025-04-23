@@ -1,8 +1,8 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { AvatarDropDownMenu } from '../avatar-menu/AvatarMenu';
+import { AvatarDropDownMenu } from '../menu-items/AvatarMenu';
 import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
-import { Button } from '../ui/button'; 
+// import { Button } from '../ui/button'; 
 
 
 const Header = () => {
