@@ -33,12 +33,12 @@ const emailWorker = new Worker("emailQueue", async ( job)=>{
     
 
 },{
-    connection: QueueConnection,
+    connection: QueueConnection, 
     concurrency:1,
 })
 
 emailWorker.on("failed", ( job, err)=>{
-    console.log(err.message);
+    console.log(err.message);  
 })
 
 

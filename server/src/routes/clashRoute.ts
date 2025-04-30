@@ -15,5 +15,7 @@ router.put("/:id", authentication, multerUpload.single("image"), clashController
 
 router.delete("/:id", authentication, clashController.deleteClash);
 
+router.post("/items", authentication, multerUpload.array("images",2), clashController.addClashItem);
+
 export default router;
 

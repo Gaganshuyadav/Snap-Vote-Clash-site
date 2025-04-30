@@ -1,7 +1,5 @@
 {
   "/[...default]/page": "app/[...default]/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/clash/items/[id]/page": "app/clash/items/[id]/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/page": "app/page.js"
+  "/clash/items/[id]/page": "app/clash/items/[id]/page.js"
 }

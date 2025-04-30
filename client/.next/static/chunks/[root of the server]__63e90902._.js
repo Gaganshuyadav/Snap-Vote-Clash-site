@@ -80,7 +80,7 @@ const ClientSessionProvider = ({ children })=>{
         children: children
     }, void 0, false, {
         fileName: "[project]/src/providers/ClientSessionProvider.tsx",
-        lineNumber: 9,
+        lineNumber: 10,
         columnNumber: 9
     }, this);
 };
@@ -897,7 +897,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$radix$2d$u
 // import { Button } from '../ui/button'; 
 const Header = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 bg-linear-65 from-purple-500 to-pink-500 h-[80px] sticky w-full top-0 ",
+        className: "flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 bg-linear-65 from-purple-500 to-pink-500 h-[80px] z-50 sticky w-full top-0 ",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "text-2xl font-bold text-gray-800",

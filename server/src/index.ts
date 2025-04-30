@@ -62,8 +62,5 @@ app.use(( req:Request,res:Response,next:NextFunction)=>{
 app.use(errorHandlingMiddleware);
 
 
-const PORT = env.PORT || 8080;
-app.listen( PORT, ()=>{
-    console.log(`server is running on port ${PORT}`);
-    console.log(process.env.PORT);
-})
+
+export { app};

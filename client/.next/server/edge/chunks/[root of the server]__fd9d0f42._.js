@@ -27,7 +27,8 @@ __turbopack_context__.s({
 ;
 const config = {
     matcher: [
-        "/dashboard"
+        "/dashboard",
+        "/clash/items/:id"
     ]
 };
 }}),

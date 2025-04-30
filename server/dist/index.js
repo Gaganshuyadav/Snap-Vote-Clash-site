@@ -1,6 +1,5 @@
 import express from "express";
 const app = express();
-import { env } from "./config/env.config.js";
 import path from "path";
 import { fileURLToPath } from "url";
 // import { sendEmailWithQueue } from "./jobs/EmailJobs.js";
@@ -38,8 +37,4 @@ app.use((req, res, next) => {
 });
 //error handler
 app.use(errorHandlingMiddleware);
-const PORT = env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}`);
-    console.log(process.env.PORT);
-});
+export { app };

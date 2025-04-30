@@ -8,7 +8,7 @@ import { DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 const Header = () => {
 
   return (
-    <div className="flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 bg-linear-65 from-purple-500 to-pink-500 h-[80px] sticky w-full top-0 ">
+    <div className="flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 bg-linear-65 from-purple-500 to-pink-500 h-[80px] z-50 sticky w-full top-0 ">
       <div className="text-2xl font-bold text-gray-800">SnapVote</div>
       <div className="w-12 h-12 flex items-center justify-center">
         <AvatarDropDownMenu>

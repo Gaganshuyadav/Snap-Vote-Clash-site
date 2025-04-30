@@ -1,16 +1,5 @@
 {
   "node": {
-    "4019412f801c68cfd590b366295f40edf0887978cb": {
-      "workers": {
-        "app/dashboard/page": {
-          "moduleId": "[project]/.next-internal/server/app/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/actions/clash/ClearCache.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/dashboard/page": "action-browser"
-      }
-    },
     "7ffe3263aa641a6e01a7ff872cc31b4a4f5646ac2e": {
       "workers": {
         "app/clash/items/[id]/page": {

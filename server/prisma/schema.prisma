@@ -70,12 +70,13 @@ model ClashItem{
 
 model Comment{
   id String @id @default(uuid())
-  clash Clash @relation(fields: [comment_id], references: [id], onDelete: Cascade )
-  comment_id String 
+  clash Clash @relation(fields: [clash_id], references: [id], onDelete: Cascade )
+  clash_id String 
   content String
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
+
 
 
 

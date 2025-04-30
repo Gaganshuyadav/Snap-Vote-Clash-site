@@ -25,7 +25,7 @@ const AddClash = ( { user}:{ user:CustomUser|null}) => {
       setImage(e.target.files[0]);
     }
     
-  };
+  }
 
   const handleFormSubmit = async (e:React.FormEvent)=>{
       e.preventDefault();
