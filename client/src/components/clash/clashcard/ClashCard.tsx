@@ -27,7 +27,7 @@ export function ClashCard({ clash, user }: { clash: ClashType, user:CustomUser }
         <Card className="w-[300px] mx-[16px] my-[20px] pb-0 pt-2 shadow-md hover:shadow-xl">
             <div className="mx-auto">
 
-                <Image className="border-2 h-80 rounded-lg" src={clash?.image || "https://images.unsplash.com/photo-1496016943515-7d33598c11e6?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} height={40} width={280} alt="id" />
+                <Image className="h-80 rounded-lg" src={clash?.image || "https://images.unsplash.com/photo-1496016943515-7d33598c11e6?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} height={40} width={280} alt="id" />
             </div>
 
 

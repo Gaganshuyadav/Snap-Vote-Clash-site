@@ -21,20 +21,26 @@ import { ClashType } from "@/app/dashboard/page";
     const [ deleteDialogOpen, setDeleteDialogOpen] = useState(false);
     const [ editDialogOpen, setEditDialogOpen] = useState(false);
 
+
+    const handleCopyClashLink = ()=>{
+        navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_FRONTEND_URL}/clash/items/${clash.id}`)
+    }
+
     return (
+      <div onClick={(e)=>{ e.stopPropagation()}}>
       <DropdownMenu>
         { children}
         <DropdownMenuContent className="w-40 mr-2">
   
-            <DropdownMenuItem onClick={()=>setEditDialogOpen(true)}>
+            <DropdownMenuItem onClick={(e)=>{ setEditDialogOpen(true)}}>
               Edit
             </DropdownMenuItem>
             
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={handleCopyClashLink}>
               Copy Link
             </DropdownMenuItem>
 
-            <DropdownMenuItem onClick={()=>setDeleteDialogOpen(true)}>
+            <DropdownMenuItem onClick={(e)=>{ setDeleteDialogOpen(true)} }>
               Delete 
             </DropdownMenuItem>
   
@@ -49,6 +55,7 @@ import { ClashType } from "@/app/dashboard/page";
 
   
       </DropdownMenu>
+      </div>
     )
   }
   

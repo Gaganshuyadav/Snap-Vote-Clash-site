@@ -5,7 +5,7 @@ import { Button } from "../ui/button"
 import axios from "axios";
 import { ClashFetchType } from "@/types/types";
 import { CustomUser } from "@/app/api/auth/[...nextauth]/auth";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export const AddClashItems = ( { clash, user}:{ clash:ClashFetchType, user:CustomUser}) => {

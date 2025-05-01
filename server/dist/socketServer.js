@@ -2,7 +2,8 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import { app } from "./index.js";
 import { env } from "./config/env.config.js";
-import { prisma } from "./prisma-client/PrismaClient.js";
+import { votingChangeQueue } from "./jobs/VotingJobs.js";
+import { commentAddQueue, commentWorkerForTakingIO } from "./jobs/CommentJobs.js";
 //web socket and its routes
 const server = createServer(app);
 const io = new Server(server, {
@@ -10,49 +11,31 @@ const io = new Server(server, {
         origin: "*"
     }
 });
+/*nedded to get the io  from here , cause you can give under the connection( otherwise if pass with comment queue in socket then this error occurs:- data: JSON.stringify(typeof this.data === 'undefined' ? {} : this.data), [0] ^ [0] TypeError: Converting circular structure to JSON [0] --> starting at object with constructor 'Server' [0] | property 'sockets' -> object with constructor 'Namespace' [0] --- property 'server' closes the circle [0] at JSON.stringify (<anonymous>) ) */
+commentWorkerForTakingIO(io);
 io.on("connection", (socket) => {
     socket.on("send-comment", async (data) => {
         if (!data?.clashId || !data.comment) {
             return;
         }
-        //add comment in database
-        const commentDB = await prisma.comment.create({
-            data: {
-                clash_id: data.clashId,
-                content: data.comment
-            }
-        });
-        io.emit("send-comment", commentDB);
+        //add comment in database and also send with socketio
+        commentAddQueue({ ...data });
     });
     socket.on("increase-count", async (data) => {
         if (!data?.clashId || !data?.clashItemId) {
             return;
         }
-        //increase count in clash item DB
-        const clashItemDB = await prisma.clashItem.update({
-            where: {
-                id: data.clashItemId
-            },
-            data: {
-                count: data.count + 1
-            }
-        });
-        io.emit("increase-count", { clashId: clashItemDB.clash_id, clashItemId: clashItemDB.id, count: clashItemDB.count });
+        //increase count in clash item DB with queue
+        votingChangeQueue({ countType: "increase-count", clashItemId: data.clashItemId, count: data.count });
+        io.emit("increase-count", { ...data, count: data.count + 1 });
     });
     socket.on("decrease-count", async (data) => {
         if (!data?.clashId || !data?.clashItemId) {
             return;
         }
-        //increase count in clash item DB
-        const clashItemDB = await prisma.clashItem.update({
-            where: {
-                id: data.clashItemId
-            },
-            data: {
-                count: data.count > 0 ? data.count - 1 : 0
-            }
-        });
-        io.emit("decrease-count", { clashId: clashItemDB.clash_id, clashItemId: clashItemDB.id, count: clashItemDB.count });
+        //decrease count in clash item DB with queue
+        votingChangeQueue({ countType: "decrease-count", clashItemId: data.clashItemId, count: data.count });
+        io.emit("decrease-count", { ...data, count: data.count - 1 });
     });
 });
 const PORT = env.PORT || 8080;

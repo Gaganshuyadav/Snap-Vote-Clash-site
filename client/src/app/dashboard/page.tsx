@@ -28,13 +28,13 @@ const Home = async() => {
 
 
   return (
-    <div className='border-2 border-red-300 min-h-[100vh] w-[99vw] overflow-hidden p-0'>
+    <div className='min-h-[100vh] w-[99vw] overflow-hidden p-0'>
         
-        <div className='border-2 flex items-center justify-end p-2 pr-8'>
+        <div className=' flex items-center justify-end p-2 pr-8'>
           <AddClash user={session?.user as CustomUser} />
         </div>
 
-        <div className='border-2 flex items-center flex-wrap justify-start p-2 pr-8 min-h-[70vh] mx-auto'>
+        <div className='flex items-center flex-wrap justify-start p-2 pr-8 min-h-[70vh] mx-auto'>
           {
             allClashes?.map(( clash:ClashType, i:number)=>{
               return(

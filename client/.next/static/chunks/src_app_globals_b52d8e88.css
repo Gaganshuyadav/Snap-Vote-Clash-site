@@ -1319,19 +1319,9 @@
     border-width: 6px;
   }
 
-  .border-\[1px\] {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-
   .border-\[2px\] {
     border-style: var(--tw-border-style);
     border-width: 2px;
-  }
-
-  .border-\[3px\] {
-    border-style: var(--tw-border-style);
-    border-width: 3px;
   }
 
   .border-x {
